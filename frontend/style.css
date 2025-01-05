@@ -341,6 +341,13 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
 @media (max-width: 1024px) {
   /* Education and Project */
   #education-project .container {
