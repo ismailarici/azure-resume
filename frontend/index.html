@@ -328,9 +328,21 @@
     </footer>
 
     <script>
-      document.querySelector(".menu-toggle").addEventListener("click", function () {
-        document.querySelector(".menu").classList.toggle("active");
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", function (event) {
+          menu.classList.toggle("active");
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove("active"); 
+          }
+        });
       });
+
     </script>
     <script src="app.js" defer></script>
   </body>
