@@ -341,6 +341,12 @@
             menu.classList.remove("active"); 
           }
         });
+
+        document.addEventListener("touchstart", function (event) {
+          if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove("active");
+          }
+        });
       });
 
     </script>
