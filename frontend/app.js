@@ -46,45 +46,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ===== TYPEWRITER =====
-const phrases = [
-  'Security Engineer',
-  'Cloud Security Specialist',
-  'Threat & Vulnerability Manager',
-  'ISO 27001 / SOC 2 Practitioner',
-];
-
-let phraseIdx = 0;
-let charIdx = 0;
-let deleting = false;
-const typewriterEl = document.getElementById('typewriter');
-
-function typeWriter() {
-  if (!typewriterEl) return;
-  const current = phrases[phraseIdx];
-
-  if (deleting) {
-    typewriterEl.textContent = current.substring(0, charIdx--);
-    if (charIdx < 0) {
-      deleting = false;
-      phraseIdx = (phraseIdx + 1) % phrases.length;
-      setTimeout(typeWriter, 400);
-      return;
-    }
-    setTimeout(typeWriter, 38);
-  } else {
-    typewriterEl.textContent = current.substring(0, charIdx++);
-    if (charIdx > current.length) {
-      deleting = true;
-      setTimeout(typeWriter, 2200);
-      return;
-    }
-    setTimeout(typeWriter, 75);
-  }
-}
-
-typeWriter();
-
 // ===== SCROLL REVEAL =====
 const revealTargets = document.querySelectorAll(
   '.skill-card, .timeline-item, .education-item, .project-card, .cert-card, .section-header'
