@@ -4,17 +4,22 @@ const navList = document.querySelector('nav ul');
 
 if (menuToggle && navList) {
   menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     navList.classList.toggle('active');
     menuToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
   });
 
-  document.addEventListener('click', (e) => {
+  // Safari iOS requires touchstart on document to fire click events outside elements
+  const closeMenu = (e) => {
     if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
       navList.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
-  });
+  };
+
+  document.addEventListener('click', closeMenu);
+  document.addEventListener('touchstart', closeMenu, { passive: true });
 
   document.querySelectorAll('nav a').forEach((link) => {
     link.addEventListener('click', () => {
@@ -77,8 +82,11 @@ async function updateVisitorCount() {
     });
     if (response.ok) {
       const data = await response.json();
+      const text = `[ ${data.visitor_count} visits ]`;
       const el = document.getElementById('visitor-count');
-      if (el) el.textContent = `[ ${data.visitor_count} visits ]`;
+      const elMobile = document.getElementById('visitor-count-mobile');
+      if (el) el.textContent = text;
+      if (elMobile) elMobile.textContent = text;
     }
   } catch (err) {
     console.error('Visitor count error:', err);
