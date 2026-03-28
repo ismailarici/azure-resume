@@ -3,370 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ismail Arici - Resume</title>
-  <link
-  href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
-  rel="stylesheet"
-  />
+  <meta name="description" content="Ismail Arici — Security Engineer & Cloud Security Professional based in Toronto, Canada." />
+  <title>Ismail Arici // Security Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <nav id="navbar">
     <div class="navbar-container container">
       <div class="logo">
-        <a href="#home">Ismail Arici</a>
+        <a href="#home"><span class="prompt">&gt;_</span> ia</a>
       </div>
       <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#skills"><span class="nav-num">01.</span>Skills</a></li>
+        <li><a href="#experience"><span class="nav-num">02.</span>Experience</a></li>
+        <li><a href="#education"><span class="nav-num">03.</span>Education</a></li>
+        <li><a href="#projects"><span class="nav-num">04.</span>Projects</a></li>
+        <li><a href="#certifications"><span class="nav-num">05.</span>Certs</a></li>
       </ul>
+      <div id="visitor-count" class="visitor-count"></div>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
-      <div id="visitor-count" style="align-content: center;">👁 Views: </div> <!-- Add this line -->
     </div>
   </nav>
 
-
+  <!-- HERO -->
   <section id="home" class="section hero">
+    <div class="hero-grid"></div>
     <div class="container">
-      <div class="center-content">
-        <hr />
-        <h1>Ismail Arici</h1>
-        <hr />
-        <p>Security Engineer | Security Analyst</p>
+      <div class="hero-content">
+        <div class="hero-tag">// SECURITY ENGINEER</div>
+        <h1 data-text="Ismail Arici">Ismail Arici</h1>
+        <p class="hero-subtitle"><span id="typewriter"></span><span class="cursor">|</span></p>
+        <div class="hero-meta">
+          <span class="hero-meta-item"><span class="accent">LOC</span> Toronto, Canada</span>
+          <span class="divider">//</span>
+          <span class="hero-meta-item"><span class="accent">STATUS</span> <span class="status-dot"></span>Available</span>
+        </div>
+        <div class="hero-links">
+          <a href="https://ca.linkedin.com/in/ismailarici" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn</a>
+          <a href="mailto:ismailarici@icloud.com" class="btn-outline">Contact</a>
+          <a href="#skills" class="btn-primary">View Resume</a>
+        </div>
       </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills" class="section">
     <div class="container">
-      <h2>Skills</h2>
-      <div class="skills-content">
-        <div class="skill-item">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-icon">☁</div>
           <h3>Cloud Computing</h3>
           <ul>
-            <li>
-              Collaborated on the design, implementation and maintenance of a
-              complete AWS infrastructure to develop internal and external
-              applications for e-commerce platforms for multiple clients.
-            </li>
-            <li>
-              Applied IaC using Terraform and CloudFormation to enable a client
-              to automate configuration, reuse codes for related projects, and
-              perform documented configurational changes.
-            </li>
-            <li>
-              Maintained automated monitoring and alerting processes for a cloud
-              infrastructure by analyzing performance metrics and evaluating
-              security to identify incidents and mitigate breaches.
-            </li>
-            <li>
-              Familiarity with containerization tools and orchestration
-              technologies such as Docker and Kubernetes.
-            </li>
+            <li>Designed and maintained complete AWS infrastructures for e-commerce platforms using IaC (Terraform, CloudFormation).</li>
+            <li>Automated monitoring and alerting for cloud infrastructure, analyzing performance metrics and security incidents.</li>
+            <li>Containerization and orchestration with Docker and Kubernetes.</li>
           </ul>
         </div>
-        <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-card-icon">🛡</div>
           <h3>Cybersecurity</h3>
           <ul>
-            <li>
-              Detailed understanding of enhanced security through training and
-              experience with computer networking, securing networks, identity
-              and access management, risk management, business continuity,
-              intrusion detection, vulnerability management, incident response,
-              and defensive security.
-            </li>
-            <li>
-              Extensive knowledge in compliance and regulatory governance and
-              common cyber security frameworks such as NIST and PIPEDA.
-            </li>
-            <li>
-              Experience applying the MITRE ATT&CK Framework to locate threats
-              and identify risks in the infrastructure informed by common
-              vulnerabilities and threats.
-            </li>
+            <li>Network security, IAM, risk management, business continuity, intrusion detection, vulnerability management, and incident response.</li>
+            <li>Compliance and governance across NIST, PIPEDA, ISO 27001, SOC 2, and HIPAA frameworks.</li>
+            <li>Applied MITRE ATT&amp;CK Framework for threat detection and risk identification.</li>
           </ul>
         </div>
-        <div class="skill-item">
-          <h3>Leadership & Communication</h3>
+        <div class="skill-card">
+          <div class="skill-card-icon">⚡</div>
+          <h3>Leadership</h3>
           <ul>
-            <li>
-              Supervised and mentored a cohort of junior engineers to facilitate
-              the development of technical skills and integration into the
-              existing team culture, helping the majority of them obtain
-              full-time roles in the organization.
-            </li>
-            <li>
-              Led numerous team projects to generate solutions for
-              infrastructural problems, which resulted in greater cost
-              efficiencies when using cloud services.
-            </li>
-            <li>
-              Established and maintained relationships with multiple clients to
-              ensure an accurate and ongoing understanding of their technical
-              requirements, expected timelines, and budget considerations.
-            </li>
-            <li>
-              Demonstrated proficiency writing and presenting technical and
-              architectural reports to diverse clients and cross-functional
-              teams to ensure that client requirements were addressed through
-              effective solutions.
-            </li>
-            <li>
-              Completely fluent in writing and speaking English and Turkish.
-            </li>
+            <li>Supervised and mentored junior engineers, helping them secure full-time roles within the organization.</li>
+            <li>Led cross-functional projects achieving significant cloud cost efficiencies.</li>
+            <li>Delivered architectural reports and maintained client relationships across diverse stakeholders.</li>
           </ul>
         </div>
-        <div class="skill-item">
-          <h3>Scripting Languages</h3>
+        <div class="skill-card">
+          <div class="skill-card-icon">&lt;/&gt;</div>
+          <h3>Scripting &amp; Tools</h3>
           <ul>
-            <li>
-              Extensive experience learning and applying multiple languages,
-              including Python, Terraform Configuration Language, JSON, YAML,
-              and SQL, to provision and configure infrastructural changes and
-              interact with databases, as well as HTML and CSS for web development.
-            </li>
+            <li>Python, Terraform HCL, JSON, YAML, SQL, HTML/CSS for infrastructure automation and web development.</li>
           </ul>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">JSON</span>
+            <span class="tag">YAML</span>
+            <span class="tag">SQL</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience" class="section">
     <div class="container">
-      <h2>Experience</h2>
-      <div class="experience-item">
-        <h3>Security Analyst | Case IQ | CANADA | 06/2023 - Present</h3>
-        <div class="experience-item">
-          <ul>
-            <li>
-              Contributed to the successful completion of SOC 2 Type II and ISO 27001 certifications through cross-functional collaboration and policy implementation.
-            </li>
-            <li>
-              Participated in security integration efforts across three platforms following two acquisitions, ensuring consistent application of security controls.
-            </li>
-            <li>
-              Helped design and operationalize a vulnerability management process focused on early detection, prioritization, and remediation as part of a shift-left security approach.
-            </li>
-            <li>
-              Worked with engineering and product teams to integrate security into the software development lifecycle (SDLC), including static and dynamic application security testing.
-            </li>
-            <li>
-              Managed vulnerability, risk, and compliance activities to support adherence to ISO 27001, SOC 2, and HIPAA requirements.
-            </li>
-            <li>
-              Contributed to vendor assessments, focusing on data residency, AI model usage, authentication requirements, and subprocessor management.
-            </li>
-            <li>
-              Conducted cloud security assessments and audits to ensure adherence to best practices and regulatory frameworks.
-            </li>
-            <li>
-              Completed client security assessments, identifying risks and ensuring alignment with organizational and regulatory standards.
-            </li>
-            <li>
-              Triaged and escalated alerts from various security systems, improving incident response workflows and time to resolution.
-            </li>
-            <li>
-              Developed and maintained incident response plans for security events and coordinated remediation efforts across teams.
-            </li>
-            <li>
-              Implemented identity and access management (IAM) controls, including role-based access controls (RBAC) and multi-factor authentication (MFA).
-            </li>
-            <li>
-              Collaborated cross-functionally on internal security processes, supported audit readiness, and responded to compliance-related stakeholder inquiries.
-            </li>
-            <li>
-              Recognized as <a href="https://www.linkedin.com/posts/caseiq_sending-a-big-shout-out-to-our-q2-case-iq-activity-7353070005644664832-IF4j?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD2EIvoB33E9lRvg8uhVyx0cQk0vF9HJR7Y" target="_blank" rel="noopener noreferrer">“Case IQ Star” – Employee of the Quarter</a> in July 2025 for contributions to the security and compliance program.
-            </li>
-          </ul>
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Security Analyst</h3>
+              <div class="timeline-meta">
+                <span class="company">Case IQ</span>
+                <span class="divider">//</span>
+                <span class="location">Canada</span>
+                <span class="divider">//</span>
+                <span class="period">06/2023 — Present</span>
+              </div>
+            </div>
+            <ul>
+              <li>Contributed to SOC 2 Type II and ISO 27001 certifications through cross-functional collaboration and policy implementation.</li>
+              <li>Led security integration across three platforms following two acquisitions, ensuring consistent application of security controls.</li>
+              <li>Designed and operationalized a vulnerability management process with a shift-left security approach (SAST &amp; DAST).</li>
+              <li>Managed vulnerability, risk, and compliance activities for ISO 27001, SOC 2, and HIPAA requirements.</li>
+              <li>Conducted vendor assessments covering data residency, AI model usage, and subprocessor management.</li>
+              <li>Triaged and escalated alerts from security systems, improving incident response workflows and time to resolution.</li>
+              <li>Implemented IAM controls including RBAC and MFA across the organization.</li>
+              <li>Recognized as <a href="https://www.linkedin.com/posts/caseiq_sending-a-big-shout-out-to-our-q2-case-iq-activity-7353070005644664832-IF4j" target="_blank" rel="noopener noreferrer" class="inline-link">"Case IQ Star" — Employee of the Quarter</a> (July 2025).</li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="experience-item">
-        <h3>Cloud Engineer | RGS Software | TURKEY | 06/2019 - 12/2022</h3>
-        <ul>
-          <li>
-            Led infrastructure maintenance and development for e-commerce
-            platforms using AWS.
-          </li>
-          <li>
-            Automated provisioning using Terraform and CloudFormation,
-            improving infrastructure reliability.
-          </li>
-          <li>
-            Developed solutions for cost optimization, reducing AWS expenses
-            by 20% in one year.
-          </li>
-        </ul>
-      </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Cloud Engineer</h3>
+              <div class="timeline-meta">
+                <span class="company">RGS Software</span>
+                <span class="divider">//</span>
+                <span class="location">Turkey</span>
+                <span class="divider">//</span>
+                <span class="period">06/2019 — 12/2022</span>
+              </div>
+            </div>
+            <ul>
+              <li>Led infrastructure maintenance and development for e-commerce platforms on AWS.</li>
+              <li>Automated provisioning with Terraform and CloudFormation, improving infrastructure reliability.</li>
+              <li>Reduced AWS operational costs by 20% in one year through targeted optimization.</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="experience-item">
-        <h3>
-          IT Supervisor & Instructor | Medipol University | TURKEY | 09/2016
-          - 06/2018
-        </h3>
-        <ul>
-          <li>
-            Designed and maintained an infrastructure for a shared file system
-            for 100 instructors.
-          </li>
-          <li>
-            Archived access logs for university compliance and mentored
-            engineering students in English proficiency.
-          </li>
-        </ul>
+        <div class="timeline-item">
+          <div class="timeline-marker"><div class="timeline-dot"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>IT Supervisor &amp; Instructor</h3>
+              <div class="timeline-meta">
+                <span class="company">Medipol University</span>
+                <span class="divider">//</span>
+                <span class="location">Turkey</span>
+                <span class="divider">//</span>
+                <span class="period">09/2016 — 06/2018</span>
+              </div>
+            </div>
+            <ul>
+              <li>Designed and maintained a shared file system infrastructure serving 100+ instructors.</li>
+              <li>Archived access logs for university compliance and mentored engineering students.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- EDUCATION + PROJECTS -->
   <section id="education-project" class="section">
-    <div class="container">
-      <div class="education-container" id="education">
-        <h2>Education</h2>
-        <div class="education-item">
-          <h3>
-            Ph.D. in Leadership, Higher and Adult Education | University of
-            Toronto | CANADA
-          </h3>
-          <p>
-            Dissertation topic: The privacy paradox: Managing compliance
-            requirements while adopting new technologies in Higher Education.
-          </p>
+    <div class="container edu-proj-grid">
+
+      <div id="education">
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <h2>Education</h2>
         </div>
-        
-        <div class="education-item">
-          <h3>
-            Cybersecurity Training Program | Fields Institute of Mathematics |
-            CANADA | 2023
-          </h3>
-          <p>
-            An intensive program focused on cloud security, risk management, and
-            vulnerability management.
-          </p>
-        </div>
-        
-        <div class="education-item">
-          <h3>
-            Master of Arts in English | Canakkale University | TURKEY | 2019
-          </h3>
-        </div>
-        
-        <div class="education-item">
-          <h3>Bachelor's in English | Istanbul University | TURKEY | 2013</h3>
+        <div class="education-list">
+          <div class="education-item">
+            <div class="edu-dot"></div>
+            <div>
+              <h3>Ph.D. — Leadership, Higher &amp; Adult Education</h3>
+              <span class="edu-meta">University of Toronto · Canada</span>
+              <p>Dissertation: <em>The privacy paradox: Managing compliance requirements while adopting new technologies in Higher Education.</em></p>
+            </div>
+          </div>
+          <div class="education-item">
+            <div class="edu-dot"></div>
+            <div>
+              <h3>Cybersecurity Training Program</h3>
+              <span class="edu-meta">Fields Institute of Mathematics · Canada · 2023</span>
+              <p>Intensive program in cloud security, risk management, and vulnerability management.</p>
+            </div>
+          </div>
+          <div class="education-item">
+            <div class="edu-dot"></div>
+            <div>
+              <h3>M.A. — English</h3>
+              <span class="edu-meta">Canakkale University · Turkey · 2019</span>
+            </div>
+          </div>
+          <div class="education-item">
+            <div class="edu-dot"></div>
+            <div>
+              <h3>B.A. — English</h3>
+              <span class="edu-meta">Istanbul University · Turkey · 2013</span>
+            </div>
+          </div>
         </div>
       </div>
-      <hr style="width: 3px; background-color: #202020;">
-      <div class="project-container" id="projects">
-        <div class="project-header">
-          <h2>Projects </h2>
-          <a href="https://github.com/ismailarici" target="_blank" style="display: flex; align-items: center;">
-            <img src="assets/github.png" alt="GitHub Logo" style="width: 70px; height: 70px; vertical-align: middle; margin-bottom: 1rem;"/>
+
+      <div id="projects">
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <h2>Projects</h2>
+          <a href="https://github.com/ismailarici" target="_blank" rel="noopener noreferrer" class="github-link" aria-label="GitHub Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
           </a>
         </div>
-        <h3>Key projects include:</h3>
-        <ul>
-          <li>
-            Designed and deployed a highly available and secure 3-tier
-            application environment in AWS using Terraform.
-          </li>
-          <li>
-            Collaborated on the design and maintenance of AWS infrastructure for
-            multiple clients, applying IaC for automation.
-          </li>
-          <li>
-            Completed the cloud resume challenge and deployed it on Microsoft
-            Azure. See https://cloudresumechallenge.dev
-          </li>
-        </ul>
+        <div class="project-cards">
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-icon">🏗</span>
+              <h3>AWS 3-Tier Architecture</h3>
+            </div>
+            <p>Designed and deployed a highly available, secure 3-tier application environment in AWS using Terraform and Zero-Trust principles.</p>
+            <div class="project-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Zero-Trust</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-icon">☁</span>
+              <h3>Multi-Client Cloud Infrastructure</h3>
+            </div>
+            <p>Collaborated on design and maintenance of AWS infrastructure for multiple clients, applying IaC for automation and cost optimization.</p>
+            <div class="project-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">IaC</span>
+              <span class="tag">CloudFormation</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-icon">🔷</span>
+              <h3>Azure Cloud Resume</h3>
+            </div>
+            <p>Completed the Cloud Resume Challenge. Built with Azure Blob Storage, Azure Functions, Cosmos DB, and automated CI/CD via GitHub Actions.</p>
+            <div class="project-tags">
+              <span class="tag">Azure</span>
+              <span class="tag">Python</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
   <section id="certifications" class="section">
     <div class="container">
-      <h2>Certifications</h2>
-      <div class="accordion">
-        <div class="accordion-item" id="cert1">
-          <div class="accordion-item-image">
-            <img src="assets/azure.png" alt="Azure Logo" class="cert-image1"/> 
-          </div>
-          <div class="accordion-item-header">
-            <h3>Azure Security Engineer</h3>
-          </div>
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2>Certifications</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <img src="assets/azure.png" alt="Azure Security Engineer" />
+          <h3>Azure Security Engineer</h3>
         </div>
-        <div class="accordion-item" id="cert2">
-          <div class="accordion-item-image">
-            <img src="assets/aws-security.png" alt="AWS Security Logo" class="cert-image2"/>
-          </div>
-          <div class="accordion-item-header">
-            <h3>AWS Certified Security Specialty</h3>
-          </div>
+        <div class="cert-card">
+          <img src="assets/aws-security.png" alt="AWS Security Specialty" />
+          <h3>AWS Certified Security Specialty</h3>
         </div>
-        <div class="accordion-item" id="cert3">
-          <div class="accordion-item-image">
-            <img src="assets/aws-architect.png" alt="AWS Solutions Architect Logo" class="cert-image3"/>
-          </div>
-          <div class="accordion-item-header">
-            <h3>AWS Certified Solutions Architect Associate</h3>
-          </div>
+        <div class="cert-card">
+          <img src="assets/aws-architect.png" alt="AWS Solutions Architect" />
+          <h3>AWS Certified Solutions Architect Associate</h3>
         </div>
-        <div class="accordion-item" id="cert4">
-          <div class="accordion-item-image">
-            <img src="assets/terraform.png" alt="Terraform Logo" class="cert-image4"/> 
-          </div>
-          <div class="accordion-item-header">
-            <h3>Terraform Associate</h3>
-          </div>
+        <div class="cert-card">
+          <img src="assets/terraform.png" alt="Terraform Associate" />
+          <h3>Terraform Associate</h3>
         </div>
       </div>
     </div>
-
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container container">
-      <div class="footer-container-left">
-        <a href="https://ca.linkedin.com/in/ismailarici" target="_blank" style="color: white; height: 20px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      <div class="footer-left">
+        <span class="prompt">&gt;_</span>
+        <a href="https://ca.linkedin.com/in/ismailarici" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <hr style="height: 20px;"/>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        <div style="color: #aaa;">ismailarici@icloud.com</div>
+        <a href="mailto:ismailarici@icloud.com" class="footer-email">ismailarici@icloud.com</a>
       </div>
-      <div class="footer-container-right">
-        <p>© 2025 Ismail Arici. All Rights Reserved.</p>
+      <div class="footer-right">
+        <p>© 2025 Ismail Arici</p>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuToggle = document.querySelector(".menu-toggle");
-      const menu = document.querySelector(".menu");
-
-      menuToggle.addEventListener("click", function (event) {
-        menu.classList.toggle("active");
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-          menu.classList.remove("active"); 
-        }
-      });
-
-      document.addEventListener("touchstart", function (event) {
-        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-          menu.classList.remove("active");
-        }
-      });
-    });
-
-  </script>
   <script src="app.js" defer></script>
 </body>
 </html>

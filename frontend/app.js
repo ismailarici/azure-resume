@@ -1,73 +1,135 @@
-// Mobile menu functionality
+// ===== MOBILE MENU =====
 const menuToggle = document.querySelector('.menu-toggle');
 const navList = document.querySelector('nav ul');
 
-// Ensure menuToggle and navList exist before adding event listeners
 if (menuToggle && navList) {
-  // Toggle menu
   menuToggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    navList.classList.toggle('visible');
-    
-    // Toggle aria attributes for accessibility
-    const isExpanded = navList.classList.contains('visible');
-    menuToggle.setAttribute('aria-expanded', isExpanded);
+    navList.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
   });
 
-  // Close menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('nav') && !e.target.closest('.menu-toggle')) {
-      navList.classList.remove('visible');
+      navList.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Close menu when clicking a link
-  document.querySelectorAll('nav a').forEach(link => {
+  document.querySelectorAll('nav a').forEach((link) => {
     link.addEventListener('click', () => {
-      navList.classList.remove('visible');
+      navList.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      navList.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
 
-// Rest of the code...
-
-// Handle window resize
-let resizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    if (window.innerWidth > 768) {
-      navList.classList.remove('visible');
-    }
-  }, 250);
-});
-
-// Smooth scrolling for anchor links
+// ===== SMOOTH SCROLLING =====
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      // Get the navbar height for offset
-      const navbarHeight = document.querySelector('#navbar').offsetHeight;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = document.querySelector('#navbar').offsetHeight;
       window.scrollTo({
-        top: targetPosition - navbarHeight,
-        behavior: "smooth"
+        top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+        behavior: 'smooth',
       });
     }
   });
 });
 
-// Lazy loading for images
+// ===== TYPEWRITER =====
+const phrases = [
+  'Security Engineer',
+  'Cloud Security Specialist',
+  'Threat & Vulnerability Manager',
+  'ISO 27001 / SOC 2 Practitioner',
+];
+
+let phraseIdx = 0;
+let charIdx = 0;
+let deleting = false;
+const typewriterEl = document.getElementById('typewriter');
+
+function typeWriter() {
+  if (!typewriterEl) return;
+  const current = phrases[phraseIdx];
+
+  if (deleting) {
+    typewriterEl.textContent = current.substring(0, charIdx--);
+    if (charIdx < 0) {
+      deleting = false;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      setTimeout(typeWriter, 400);
+      return;
+    }
+    setTimeout(typeWriter, 38);
+  } else {
+    typewriterEl.textContent = current.substring(0, charIdx++);
+    if (charIdx > current.length) {
+      deleting = true;
+      setTimeout(typeWriter, 2200);
+      return;
+    }
+    setTimeout(typeWriter, 75);
+  }
+}
+
+typeWriter();
+
+// ===== SCROLL REVEAL =====
+const revealTargets = document.querySelectorAll(
+  '.skill-card, .timeline-item, .education-item, .project-card, .cert-card, .section-header'
+);
+
+revealTargets.forEach((el) => el.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+);
+
+revealTargets.forEach((el) => revealObserver.observe(el));
+
+// ===== VISITOR COUNTER =====
+async function updateVisitorCount() {
+  const proxyUrl = "__AZURE_FUNCTION_URL__&code=__AZURE_FUNCTION_KEY__";
+  try {
+    const response = await fetch(proxyUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const el = document.getElementById('visitor-count');
+      if (el) el.textContent = `[ ${data.visitor_count} visits ]`;
+    }
+  } catch (err) {
+    console.error('Visitor count error:', err);
+  }
+}
+
+updateVisitorCount();
+
+// ===== LAZY LOADING =====
 if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+  const imgObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const img = entry.target;
         if (img.dataset.src) {
@@ -78,82 +140,5 @@ if ('IntersectionObserver' in window) {
       }
     });
   });
-
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-  });
+  document.querySelectorAll('img[data-src]').forEach((img) => imgObserver.observe(img));
 }
-
-// Visitor counter functionality
-async function updateVisitorCount() {
-  const proxyUrl = "__AZURE_FUNCTION_URL__&code=__AZURE_FUNCTION_KEY__";
-
-  try {
-    const response = await fetch(proxyUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      const visitorElement = document.getElementById("visitor-count");
-      if (visitorElement) {
-        visitorElement.innerText = `👁 Views: ${data.visitor_count}`;
-      }
-    } else {
-      console.error("Error fetching visitor count:", response.statusText);
-    }
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-// Initialize visitor counter
-updateVisitorCount();
-
-// Add touch event handling for mobile devices
-if ('ontouchstart' in window) {
-  const touchItems = document.querySelectorAll('.experience-item, .education-item');
-  
-  touchItems.forEach(item => {
-    item.addEventListener('touchstart', function() {
-      this.style.transform = 'translateY(-2px)';
-    }, { passive: true });
-    
-    item.addEventListener('touchend', function() {
-      this.style.transform = 'translateY(0)';
-    }, { passive: true });
-  });
-}
-
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Add scroll-based animations
-const scrollHandler = debounce(() => {
-  const elements = document.querySelectorAll('.experience-item, .education-item');
-  elements.forEach(element => {
-    const rect = element.getBoundingClientRect();
-    const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
-    
-    if (isVisible) {
-      element.style.opacity = '1';
-      element.style.transform = 'translateY(0)';
-    }
-  });
-}, 100);
-
-// Initialize scroll handler
-window.addEventListener('scroll', scrollHandler, { passive: true });
