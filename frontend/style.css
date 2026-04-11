@@ -299,6 +299,13 @@ nav a:hover { color: var(--accent); background: var(--accent-dim); }
   box-shadow: 0 0 20px var(--accent-glow);
 }
 
+.btn-icon {
+  padding: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn-primary {
   font-family: var(--mono);
   font-size: 0.78rem;
