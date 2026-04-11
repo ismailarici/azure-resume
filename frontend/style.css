@@ -851,5 +851,5 @@ footer {
 
 @media (max-width: 480px) {
   .cert-grid { grid-template-columns: 1fr 1fr; }
-  .hero-links { flex-direction: column; align-items: center; }
+  .hero-links { flex-direction: row; align-items: center; justify-content: center; }
 }
