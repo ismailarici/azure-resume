@@ -1,4 +1,4 @@
-name: Blob storage website CI
+name: Azure Static Web Apps CI/CD
 
 on:
   push:
@@ -6,42 +6,41 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/main.yml'
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [ main ]
 
 jobs:
-  build:
+  build_and_deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    name: Build and Deploy
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Inject Azure Function secrets
+        run: |
+          sed -i 's|__AZURE_FUNCTION_URL__|'"${{ secrets.AZURE_FUNCTION_URL }}"'|g' ./frontend/app.js
+          sed -i 's|__AZURE_FUNCTION_KEY__|'"${{ secrets.AZURE_FUNCTION_KEY }}"'|g' ./frontend/app.js
 
-    - name: Replace Azure Function Secrets in app.js
-      run: |
-        sed -i 's|__AZURE_FUNCTION_URL__|'"${{ secrets.AZURE_FUNCTION_URL }}"'|g' ./frontend/app.js
-        sed -i 's|__AZURE_FUNCTION_KEY__|'"${{ secrets.AZURE_FUNCTION_KEY }}"'|g' ./frontend/app.js
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "frontend"
+          output_location: ""
+          skip_api_build: true
 
-    - name: Upload to Blob Storage
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          az storage blob upload-batch --account-name ismailresumestorage --auth-mode key -d '$web' -s ./frontend --overwrite true
-
-    - name: Purge CDN Cache
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          az afd endpoint purge \
-            --resource-group ResumeRG \
-            --profile-name ResumeCDNProfile \
-            --endpoint-name ismailresumecdn \
-            --content-paths '/*' \
-            --no-wait
-
-    - name: Logout from Azure
-      run: |
-        az logout
-      if: always()
+  close_pull_request:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request
+    steps:
+      - name: Close Staging Environment
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "close"
